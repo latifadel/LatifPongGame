@@ -1,0 +1,96 @@
+/* style.css - Basic styling & UI animations for Pong */
+
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #222;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Game Container */
+#game-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 2px solid #fff;
+  background-color: #000;
+}
+
+/* Scoreboard */
+#scoreboard {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+/* Canvas */
+#game-canvas {
+  background: #000;
+  display: block;
+}
+
+/* Power-ups display container */
+#power-ups {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* For each power-up indicator displayed */
+.power-up-indicator {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ff4081;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  animation: powerup-pulse 2s infinite;
+}
+
+/* Animate power-up to stand out */
+@keyframes powerup-pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 900px) {
+  #game-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    max-width: 100%;
+  }
+  #game-canvas {
+    width: 100%;
+    height: auto;
+  }
+}
